@@ -4,10 +4,14 @@ import { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
 
+// Web3Forms Access Key - Loaded from environment variable
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_KEY;
+
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const {
     register,
@@ -16,12 +20,45 @@ const Contact = () => {
     reset,
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log('Form data:', data);
-    // In production, this would send to your backend/email service
-    setIsSubmitted(true);
-    reset();
-    setTimeout(() => setIsSubmitted(false), 5000);
+  const onSubmit = async (data) => {
+    setIsSubmitting(true);
+    
+    try {
+      const formData = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        message: data.message,
+        subject: "New Contact Form Submission - TC Staining",
+        from_name: "TC Staining Website",
+      };
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setIsSubmitted(true);
+        reset();
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        console.error("Form submission error:", result);
+        alert("There was an error submitting the form. Please try again or email us directly at tyler@tcstaining.com");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("There was an error submitting the form. Please try again or email us directly at tyler@tcstaining.com");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -128,9 +165,10 @@ const Contact = () => {
 
               <button
                 type="submit"
-                className="w-full bg-accent-gold text-white py-4 rounded-lg font-semibold text-lg hover:bg-dark-walnut transition-colors duration-300 shadow-lg hover:shadow-xl"
+                disabled={isSubmitting}
+                className="w-full bg-accent-gold text-white py-4 rounded-lg font-semibold text-lg hover:bg-dark-walnut transition-colors duration-300 shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
 
               {isSubmitted && (
