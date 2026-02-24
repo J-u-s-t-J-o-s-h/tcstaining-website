@@ -13,7 +13,7 @@ const Footer = () => {
               TC <span className="text-accent-gold">Staining</span>
             </h3>
             <p className="text-warm-beige/80 mb-4">
-              Professional fence and deck staining services in the Greater Augusta, GA area.
+              Professional fence and deck staining services.
             </p>
             <div className="flex space-x-4">
               <a
@@ -87,7 +87,7 @@ const Footer = () => {
                 <span className="text-warm-beige/80">(706) 555-0123</span>
               </li>
               <li className="text-warm-beige/80">
-                <strong>Service Area:</strong> Greater Augusta / CSRA
+                <strong>Service Area:</strong> Contact us for details
               </li>
             </ul>
           </div>

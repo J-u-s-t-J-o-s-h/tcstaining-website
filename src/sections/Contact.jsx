@@ -223,27 +223,12 @@ const Contact = () => {
                   <FaMapMarkerAlt className="text-accent-gold text-xl mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-charcoal-gray">Service Area</p>
-                    <p className="text-dark-walnut">Greater Augusta, GA / CSRA</p>
+                    <p className="text-dark-walnut">Contact us for service area details</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Google Map */}
-            <div className="bg-white p-4 rounded-lg shadow-xl">
-              <div className="aspect-video rounded-lg overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212270.5441984869!2d-82.20907695!3d33.4734978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f9cede636def8f%3A0x788ff6de5f9d01c9!2sAugusta%2C%20GA!5e0!3m2!1sen!2sus!4v1234567890"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Augusta, GA location"
-                ></iframe>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>

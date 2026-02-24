@@ -95,7 +95,7 @@ App.jsx (Root)
 │                                                           │
 │              [Get a Free Quote Button]                   │
 │                                                           │
-│         Serving Greater Augusta, GA area                 │
+│                                                           │
 │                       ↓                                   │
 └─────────────────────────────────────────────────────────┘
 
@@ -152,11 +152,11 @@ App.jsx (Root)
 │  │ Contact Form   │  │ Contact Information         │   │
 │  │ ┌────────────┐ │  │ ✉ tyler@tcstaining.com     │   │
 │  │ │ Name       │ │  │ ☎ (706) 555-0123          │   │
-│  │ │ Email      │ │  │ 📍 Greater Augusta / CSRA  │   │
+│  │ │ Email      │ │  │ 📍 Contact us for details  │   │
 │  │ │ Phone      │ │  │                             │   │
 │  │ │ Message    │ │  │ ┌─────────────────────┐   │   │
 │  │ │            │ │  │ │   Google Maps       │   │   │
-│  │ │[Submit]    │ │  │ │   (Augusta, GA)     │   │   │
+│  │ │[Submit]    │ │  │ │   (map removed)     │   │   │
 │  │ └────────────┘ │  │ └─────────────────────┘   │   │
 │  └────────────────┘  └─────────────────────────────┘   │
 └─────────────────────────────────────────────────────────┘

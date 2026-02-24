@@ -25,8 +25,8 @@ const About = () => {
                 Your outdoor wood surfaces are an investment, and proper care ensures they last for years to come.
               </p>
               <p>
-                Tyler brings years of hands-on experience restoring and protecting wooden fences across 
-                the CSRA using premium stains and sealants. From weathered gray wood to fresh natural tones, 
+                Tyler brings years of hands-on experience restoring and protecting wooden fences using 
+                premium stains and sealants. From weathered gray wood to fresh natural tones, 
                 we transform outdoor spaces with attention to detail and quality craftsmanship.
               </p>
               <p>

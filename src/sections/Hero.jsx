@@ -41,9 +41,6 @@ const Hero = () => {
           <p className="text-xl sm:text-2xl md:text-3xl text-warm-beige font-semibold mb-8">
             Expert Staining You Can Trust
           </p>
-          <p className="text-lg sm:text-xl text-warm-beige/90 mb-10 max-w-2xl mx-auto">
-            Serving the Greater Augusta, GA area
-          </p>
           <motion.button
             onClick={scrollToContact}
             whileHover={{ scale: 1.05 }}
@@ -53,22 +50,22 @@ const Hero = () => {
             Get a Free Quote
           </motion.button>
         </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            <FaChevronDown className="text-warm-beige text-3xl" />
-          </motion.div>
-        </motion.div>
       </div>
+
+      {/* Scroll Indicator - positioned at bottom of section, below content */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        >
+          <FaChevronDown className="text-warm-beige text-3xl" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

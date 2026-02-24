@@ -39,7 +39,6 @@ A professional, modern single-page website for TC Staining, modeled after pender
 - Full-screen background image
 - Main tagline: "Protect & Beautify Your Fence — Expert Staining You Can Trust"
 - Prominent CTA button
-- Location subtitle: "Serving the Greater Augusta, GA area"
 - Animated scroll indicator
 - **Files**: `src/sections/Hero.jsx`
 
@@ -80,8 +79,8 @@ Three professional service cards:
 - Phone: (706) 555-0123 [placeholder - needs update]
 - Service area display
 
-**Google Maps:**
-- Embedded map of Augusta, GA area
+**Map:**
+- Removed (no location-specific map)
 
 **Files**: `src/sections/Contact.jsx`
 
@@ -262,7 +261,7 @@ Before launch, update these items:
 | Services Section | ✅ Complete | 3 service cards |
 | Gallery | ✅ Complete | Lightbox with 9 images |
 | Contact Form | ✅ Complete | Validation ready |
-| Google Maps | ✅ Complete | Augusta, GA embedded |
+| Map | Removed | No location-specific map |
 | Animations | ✅ Complete | Framer Motion throughout |
 | SEO Tags | ✅ Complete | Meta tags, OG tags |
 | Favicon | ✅ Complete | TC logo SVG |

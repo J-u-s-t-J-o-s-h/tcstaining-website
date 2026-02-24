@@ -1,6 +1,6 @@
 # TC Staining - Professional Fence & Deck Staining Services
 
-A modern, responsive single-page website for TC Staining, a professional fence and deck staining business serving the Greater Augusta, GA area.
+A modern, responsive single-page website for TC Staining, a professional fence and deck staining business professional fence and deck staining services.
 
 ## 🚀 Features
 
