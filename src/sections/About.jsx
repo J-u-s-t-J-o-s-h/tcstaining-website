@@ -14,30 +14,27 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.45 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-dark-walnut mb-6">
               About <span className="text-accent-gold">TC Staining</span>
             </h2>
             <div className="space-y-4 text-charcoal-gray text-lg leading-relaxed">
               <p>
-                At TC Staining, we believe every fence deserves to stand strong and look beautiful. 
-                Your outdoor wood surfaces are an investment, and proper care ensures they last for years to come.
+                I believe every fence deserves to stand strong and look beautiful. 
+                Your outdoor wood is an investment. With the right care, it'll last for years.
               </p>
               <p>
-                Tyler brings years of hands-on experience restoring and protecting wooden fences using 
-                premium stains and sealants. From weathered gray wood to fresh natural tones, 
-                we transform outdoor spaces with attention to detail and quality craftsmanship.
+                I've got years of hands-on experience restoring and protecting wooden fences with 
+                premium stains and sealants. Whether it's weathered gray wood or fresh natural tones, 
+                I get it done right.
               </p>
               <p>
-                We're not just about making your fence look good—we're about protecting your investment 
-                from the elements, preventing rot and decay, and enhancing your property's curb appeal. 
-                Every project receives the same level of care and professionalism, whether it's a small 
-                residential fence or a large deck restoration.
+                Making your fence look good matters, but so does protecting it from the elements, rot, and decay. 
+                I treat every job the same, from a small residential fence to a big deck restoration.
               </p>
               <p className="font-semibold text-dark-walnut">
-                Let us help you protect and beautify your outdoor wood surfaces with expert staining services 
-                you can trust.
+                I'd be glad to help protect and beautify your outdoor wood. Give me a call when you're ready.
               </p>
             </div>
           </motion.div>
@@ -46,7 +43,7 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.45, delay: 0.1 }}
             className="relative"
           >
             <div className="relative rounded-lg overflow-hidden shadow-2xl">
@@ -54,6 +51,8 @@ const About = () => {
                 src="https://images.unsplash.com/photo-1534398079543-7ae6d016b86a?q=80&w=2070&auto=format&fit=crop"
                 alt="Professional fence staining work"
                 className="w-full h-[500px] object-cover"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-walnut/30 to-transparent"></div>
             </div>

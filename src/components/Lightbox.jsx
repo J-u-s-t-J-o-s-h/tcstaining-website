@@ -53,7 +53,7 @@ const Lightbox = ({ images, currentIndex, onClose, onNext, onPrev }) => {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.8, opacity: 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.2 }}
           className="max-w-7xl max-h-[90vh] mx-4"
           onClick={(e) => e.stopPropagation()}
         >

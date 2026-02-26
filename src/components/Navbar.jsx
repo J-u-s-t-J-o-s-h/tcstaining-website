@@ -40,17 +40,24 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-lg py-4' : 'bg-white/95 py-6'
+      className={`fixed w-full z-50 border-b border-dark-walnut/10 transition-all duration-300 ${
+        scrolled ? 'bg-warm-beige shadow-lg py-1' : 'bg-warm-beige/95 py-2'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <a href="#home" onClick={(e) => scrollToSection(e, '#home')} className="flex items-center">
-            <span className="text-2xl sm:text-3xl font-bold text-dark-walnut">
-              TC <span className="text-accent-gold">Staining</span>
-            </span>
+            <motion.img
+              src="/logo.svg"
+              alt="TC Staining"
+              className={`w-auto transition-all duration-300 ${scrolled ? 'h-16' : 'h-28'}`}
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ type: 'spring', stiffness: 260, damping: 20, mass: 0.8 }}
+              whileHover={{ scale: 1.06, rotate: 2 }}
+              whileTap={{ scale: 0.98 }}
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -77,7 +84,7 @@ const Navbar = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-dark-walnut focus:outline-none"
+            className="md:hidden text-dark-walnut focus:outline-none mr-2"
             aria-label="Toggle menu"
           >
             {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -89,11 +96,11 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-white border-t border-gray-200"
+            initial={{ opacity: 0, maxHeight: 0 }}
+            animate={{ opacity: 1, maxHeight: 400 }}
+            exit={{ opacity: 0, maxHeight: 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
+            className="md:hidden bg-white border-t border-gray-200 overflow-hidden"
           >
             <div className="px-4 py-4 space-y-3">
               {navItems.map((item) => (
@@ -122,4 +129,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

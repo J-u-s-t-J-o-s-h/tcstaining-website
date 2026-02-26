@@ -67,7 +67,7 @@ const Contact = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-dark-walnut mb-4">
@@ -83,7 +83,7 @@ const Contact = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.45 }}
             className="bg-white p-8 rounded-lg shadow-xl"
           >
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -140,7 +140,7 @@ const Contact = () => {
                     },
                   })}
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-gold focus:border-transparent outline-none transition-all"
-                  placeholder="(706) 555-0123"
+                  placeholder="(803) 341-3133"
                 />
                 {errors.phone && (
                   <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
@@ -188,7 +188,7 @@ const Contact = () => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.45, delay: 0.1 }}
             className="space-y-8"
           >
             {/* Contact Information */}
@@ -212,10 +212,10 @@ const Contact = () => {
                   <div>
                     <p className="font-semibold text-charcoal-gray">Phone</p>
                     <a
-                      href="tel:+17065550123"
+                      href="tel:+18033413133"
                       className="text-dark-walnut hover:text-accent-gold transition-colors"
                     >
-                      (706) 555-0123
+                      (803) 341-3133
                     </a>
                   </div>
                 </div>

@@ -8,53 +8,14 @@ const Gallery = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
-  const galleryImages = [
-    {
-      src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Stained fence before and after',
-      label: 'Fence Restoration - Before & After',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1600607687644-c7171b42498f?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Beautiful deck staining',
-      label: 'Deck Staining Project',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Privacy fence staining',
-      label: 'Privacy Fence Protection',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1534398079543-7ae6d016b86a?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Wood fence treatment',
-      label: 'Wood Fence Treatment',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Deck restoration',
-      label: 'Complete Deck Restoration',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Fence refinishing',
-      label: 'Fence Refinishing Work',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Natural wood staining',
-      label: 'Natural Wood Stain Finish',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Backyard fence staining',
-      label: 'Backyard Fence Project',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2070&auto=format&fit=crop',
-      alt: 'Professional fence work',
-      label: 'Professional Fence Staining',
-    },
-  ];
+  const galleryImages = Array.from({ length: 23 }, (_, i) => {
+    const n = i + 1;
+    return {
+      src: `/images/gallery/${n}.png`,
+      alt: 'Fence and deck staining work',
+      label: '',
+    };
+  });
 
   const handleNext = () => {
     setLightboxIndex((prev) => (prev + 1) % galleryImages.length);
@@ -70,7 +31,7 @@ const Gallery = () => {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-warm-beige mb-4">
@@ -85,10 +46,10 @@ const Gallery = () => {
           {galleryImages.map((image, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.35, delay: index * 0.06 }}
               className="relative group cursor-pointer overflow-hidden rounded-lg shadow-lg"
               onClick={() => setLightboxIndex(index)}
             >
@@ -97,10 +58,14 @@ const Gallery = () => {
                   src={image.src}
                   alt={image.alt}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-walnut/90 via-dark-walnut/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <p className="text-warm-beige font-semibold text-lg">{image.label}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-dark-walnut/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                {image.label && (
+                  <p className="text-warm-beige font-semibold text-lg">{image.label}</p>
+                )}
               </div>
             </motion.div>
           ))}

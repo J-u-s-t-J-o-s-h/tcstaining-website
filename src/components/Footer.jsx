@@ -9,9 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold mb-4">
-              TC <span className="text-accent-gold">Staining</span>
-            </h3>
+            <img src="/logo.svg" alt="TC Staining" className="h-12 w-auto mb-4 [filter:brightness(0)_invert(1)_opacity(0.9)]" />
             <p className="text-warm-beige/80 mb-4">
               Professional fence and deck staining services.
             </p>
@@ -84,7 +82,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-3">
                 <FaPhone className="text-accent-gold" />
-                <span className="text-warm-beige/80">(706) 555-0123</span>
+                <span className="text-warm-beige/80">(803) 341-3133</span>
               </li>
               <li className="text-warm-beige/80">
                 <strong>Service Area:</strong> Contact us for details
