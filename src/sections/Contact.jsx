@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import ParallaxBackground from '../components/ParallaxBackground';
 import { useForm } from 'react-hook-form';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
 
@@ -62,8 +62,9 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-warm-beige" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative py-20 overflow-hidden section-depth" ref={ref}>
+      <ParallaxBackground sectionRef={ref} className="bg-warm-beige" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}

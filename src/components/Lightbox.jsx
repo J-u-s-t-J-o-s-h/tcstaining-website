@@ -57,11 +57,24 @@ const Lightbox = ({ images, currentIndex, onClose, onNext, onPrev }) => {
           className="max-w-7xl max-h-[90vh] mx-4"
           onClick={(e) => e.stopPropagation()}
         >
-          <img
-            src={currentImage.src}
-            alt={currentImage.alt}
-            className="max-w-full max-h-[85vh] object-contain rounded-lg"
-          />
+          {currentImage.srcWebp ? (
+            <picture>
+              <source srcSet={currentImage.srcWebp} type="image/webp" />
+              <img
+                src={currentImage.src}
+                alt={currentImage.alt}
+                className="max-w-full max-h-[85vh] object-contain rounded-lg"
+                decoding="async"
+              />
+            </picture>
+          ) : (
+            <img
+              src={currentImage.src}
+              alt={currentImage.alt}
+              className="max-w-full max-h-[85vh] object-contain rounded-lg"
+              decoding="async"
+            />
+          )}
           <div className="text-center mt-4">
             <p className="text-white text-lg font-semibold">{currentImage.label}</p>
             <p className="text-warm-beige text-sm mt-1">

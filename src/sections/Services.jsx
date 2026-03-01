@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import ServiceCard from '../components/ServiceCard';
+import ParallaxBackground from '../components/ParallaxBackground';
 
 const Services = () => {
   const ref = useRef(null);
@@ -41,8 +41,9 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="relative py-20 overflow-hidden section-depth" ref={ref}>
+      <ParallaxBackground sectionRef={ref} className="bg-[#F0EDE8]" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}

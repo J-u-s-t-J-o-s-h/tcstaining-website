@@ -40,8 +40,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 border-b border-dark-walnut/10 transition-all duration-300 ${
-        scrolled ? 'bg-warm-beige shadow-lg py-1' : 'bg-warm-beige/95 py-2'
+      className={`fixed w-full z-50 border-b border-dark-walnut/10 transition-all duration-300 opacity-100 ${
+        scrolled ? 'bg-warm-beige shadow-lg py-1' : 'bg-warm-beige py-2'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

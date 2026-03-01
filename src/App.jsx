@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import SectionDivider from './components/SectionDivider';
 import Hero from './sections/Hero';
 
 const About = lazy(() => import('./sections/About'));
@@ -14,12 +15,17 @@ function App() {
       <Navbar />
       <main>
         <Hero />
+        <SectionDivider />
         <Suspense fallback={<div className="min-h-[50vh]" />}>
           <About />
+          <SectionDivider />
           <Services />
+          <SectionDivider />
           <Gallery />
+          <SectionDivider />
           <Contact />
         </Suspense>
+        <SectionDivider />
       </main>
       <Footer />
     </div>

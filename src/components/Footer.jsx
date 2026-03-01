@@ -1,11 +1,15 @@
+import { useRef } from 'react';
 import { FaFacebook, FaInstagram, FaEnvelope, FaPhone } from 'react-icons/fa';
+import ParallaxBackground from './ParallaxBackground';
 
 const Footer = () => {
+  const ref = useRef(null);
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-dark-walnut text-warm-beige">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer ref={ref} className="relative text-warm-beige overflow-hidden section-depth">
+      <ParallaxBackground sectionRef={ref} className="bg-dark-walnut" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>

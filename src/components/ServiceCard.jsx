@@ -27,7 +27,9 @@ const ServiceCard = ({ title, bullets, image, delay }) => {
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          width={400}
+          height={256}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           loading="lazy"
           decoding="async"
         />
