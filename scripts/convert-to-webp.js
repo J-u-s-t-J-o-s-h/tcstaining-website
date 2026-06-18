@@ -4,9 +4,10 @@
  * Requires: npm install --save-dev sharp
  */
 import sharp from 'sharp';
-import { readdir, mkdir } from 'fs/promises';
+import { readdir } from 'fs/promises';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { exit } from 'node:process';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const galleryDir = join(__dirname, '..', 'public', 'images', 'gallery');
@@ -32,5 +33,5 @@ async function convert() {
 
 convert().catch((err) => {
   console.error(err);
-  process.exit(1);
+  exit(1);
 });
