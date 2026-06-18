@@ -22,20 +22,19 @@ const About = () => {
             </h2>
             <div className="space-y-4 text-charcoal-gray text-lg leading-relaxed">
               <p>
-                I believe every fence deserves to stand strong and look beautiful. 
-                Your outdoor wood is an investment. With the right care, it'll last for years.
+                I run TC Staining as a hands-on local business, and I take pride in helping homeowners
+                protect and beautify their outdoor wood.
               </p>
               <p>
-                I've got years of hands-on experience restoring and protecting wooden fences with 
-                premium stains and sealants. Whether it's weathered gray wood or fresh natural tones, 
-                I get it done right.
+                I serve the Aiken, Augusta, and Edgefield area with practical, detail-focused fence and
+                deck staining that holds up through heat, rain, and everyday wear.
               </p>
               <p>
-                Making your fence look good matters, but so does protecting it from the elements, rot, and decay. 
-                I treat every job the same, from a small residential fence to a big deck restoration.
+                Whether your wood needs a refresh or long-term protection, I focus on quality prep,
+                clean application, and results that look right and last.
               </p>
               <p className="font-semibold text-dark-walnut">
-                I'd be glad to help protect and beautify your outdoor wood. Give me a call when you're ready.
+                I would be glad to help with your next project. Reach out when you are ready for a quote.
               </p>
             </div>
           </motion.div>

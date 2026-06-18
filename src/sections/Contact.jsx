@@ -24,13 +24,30 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
+      const formattedMessage = [
+        "New quote request details:",
+        "",
+        `Full Name: ${data.name}`,
+        `Email: ${data.email}`,
+        `Phone: ${data.phone}`,
+        `Address: ${data.address || "Not provided"}`,
+        `Fence Size / Linear Feet: ${data.fenceSize || "Not provided"}`,
+        `Color Choice: ${data.colorChoice || "Unsure"}`,
+        "",
+        "Project Details:",
+        data.message,
+      ].join("\n");
+
       const formData = {
         access_key: WEB3FORMS_ACCESS_KEY,
         name: data.name,
         email: data.email,
         phone: data.phone,
-        message: data.message,
-        subject: "New Contact Form Submission - TC Staining",
+        address: data.address || "",
+        fence_size: data.fenceSize || "",
+        color_choice: data.colorChoice || "Unsure",
+        message: formattedMessage,
+        subject: "New Quote Request - TC Staining",
         from_name: "TC Staining Website",
       };
 
@@ -136,7 +153,7 @@ const Contact = () => {
                   {...register('phone', {
                     required: 'Phone number is required',
                     pattern: {
-                      value: /^[0-9\s\-\(\)]+$/,
+                      value: /^[0-9\s\-()]+$/,
                       message: 'Invalid phone number',
                     },
                   })}
@@ -146,6 +163,45 @@ const Contact = () => {
                 {errors.phone && (
                   <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
                 )}
+              </div>
+
+              <div>
+                <label htmlFor="address" className="block text-sm font-semibold text-charcoal-gray mb-2">
+                  Address
+                </label>
+                <input
+                  type="text"
+                  id="address"
+                  {...register('address')}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-gold focus:border-transparent outline-none transition-all"
+                  placeholder="Street address or neighborhood"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="fenceSize" className="block text-sm font-semibold text-charcoal-gray mb-2">
+                  Fence Size / Linear Feet
+                </label>
+                <input
+                  type="text"
+                  id="fenceSize"
+                  {...register('fenceSize')}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-gold focus:border-transparent outline-none transition-all"
+                  placeholder="Approx. 150 linear feet"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="colorChoice" className="block text-sm font-semibold text-charcoal-gray mb-2">
+                  Color Choice
+                </label>
+                <input
+                  type="text"
+                  id="colorChoice"
+                  {...register('colorChoice')}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-gold focus:border-transparent outline-none transition-all"
+                  placeholder="Cedar, Natural Tone, Unsure, etc."
+                />
               </div>
 
               <div>
@@ -224,9 +280,29 @@ const Contact = () => {
                   <FaMapMarkerAlt className="text-accent-gold text-xl mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-semibold text-charcoal-gray">Service Area</p>
-                    <p className="text-dark-walnut">Contact us for service area details</p>
+                    <p className="text-dark-walnut">Serving Aiken, Augusta, and Edgefield areas</p>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Service Area Map */}
+            <div className="bg-white p-8 rounded-lg shadow-xl">
+              <h3 className="text-2xl font-bold text-dark-walnut mb-3">Service Area Map</h3>
+              <p className="text-charcoal-gray mb-5">
+                Serving Aiken, Augusta, and Edgefield areas.
+              </p>
+              <div className="rounded-lg overflow-hidden border border-gray-200 h-72">
+                <iframe
+                  title="TC Staining Service Area"
+                  src="https://www.google.com/maps?q=Aiken,Augusta,Edgefield&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
 

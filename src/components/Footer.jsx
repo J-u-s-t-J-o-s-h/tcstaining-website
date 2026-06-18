@@ -89,7 +89,7 @@ const Footer = () => {
                 <span className="text-warm-beige/80">(803) 341-3133</span>
               </li>
               <li className="text-warm-beige/80">
-                <strong>Service Area:</strong> Contact us for details
+                <strong>Service Area:</strong> Serving Aiken, Augusta, and Edgefield areas
               </li>
             </ul>
           </div>
