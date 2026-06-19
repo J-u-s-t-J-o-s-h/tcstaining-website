@@ -1,6 +1,8 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import ParallaxBackground from '../components/ParallaxBackground';
+import StainColorVisualizer from '../components/StainColorVisualizer';
+import { useStainColor } from '../hooks/useStainColor';
 import { useForm } from 'react-hook-form';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
 
@@ -13,12 +15,23 @@ const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   
+  const { selectedColor } = useStainColor();
+  
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+    setValue,
+  } = useForm({
+    defaultValues: {
+      colorChoice: selectedColor.name,
+    },
+  });
+
+  useEffect(() => {
+    setValue('colorChoice', selectedColor.name);
+  }, [selectedColor, setValue]);
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
@@ -195,13 +208,8 @@ const Contact = () => {
                 <label htmlFor="colorChoice" className="block text-sm font-semibold text-charcoal-gray mb-2">
                   Color Choice
                 </label>
-                <input
-                  type="text"
-                  id="colorChoice"
-                  {...register('colorChoice')}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-gold focus:border-transparent outline-none transition-all"
-                  placeholder="Cedar, Natural Tone, Unsure, etc."
-                />
+                <input type="hidden" id="colorChoice" {...register('colorChoice')} />
+                <StainColorVisualizer compact />
               </div>
 
               <div>

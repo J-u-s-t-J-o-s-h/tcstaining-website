@@ -45,3 +45,13 @@ body {
     linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.05) 100%),
     radial-gradient(ellipse 80% 70% at 50% 50%, transparent 50%, rgba(0, 0, 0, 0.04) 100%);
 }
+
+/* Hide scrollbar for horizontal swatch scroll on mobile */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

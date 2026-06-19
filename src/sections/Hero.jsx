@@ -1,21 +1,8 @@
 import { motion } from 'framer-motion';
-import { FaChevronDown } from 'react-icons/fa';
+import { FaChevronDown, FaPalette } from 'react-icons/fa';
+import { scrollToSection } from '../utils/scrollToSection';
 
 const Hero = () => {
-  const scrollToContact = () => {
-    const element = document.querySelector('#contact');
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image (from remote repo) */}
@@ -43,14 +30,27 @@ const Hero = () => {
           <p className="text-xl sm:text-2xl md:text-3xl text-warm-beige font-semibold mb-8">
             Expert Staining You Can Trust
           </p>
-          <motion.button
-            onClick={scrollToContact}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-accent-gold text-white px-12 py-5 rounded-lg text-xl font-bold hover:bg-accent-gold/90 transition-all duration-300 shadow-xl hover:shadow-2xl min-w-[280px] touch-manipulation"
-          >
-            Get a Free Quote
-          </motion.button>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <motion.button
+              onClick={() => scrollToSection('#contact')}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-accent-gold text-white px-10 sm:px-12 py-4 sm:py-5 rounded-lg text-lg sm:text-xl font-bold hover:bg-accent-gold/90 transition-all duration-300 shadow-xl hover:shadow-2xl min-w-[260px] sm:min-w-[280px] touch-manipulation"
+            >
+              Get a Free Quote
+            </motion.button>
+
+            <motion.button
+              onClick={() => scrollToSection('#stain-colors')}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white border-2 border-warm-beige/60 px-8 sm:px-10 py-4 sm:py-5 rounded-lg text-lg sm:text-xl font-semibold hover:bg-white/20 hover:border-warm-beige transition-all duration-300 min-w-[260px] sm:min-w-[280px] touch-manipulation"
+            >
+              <FaPalette className="text-accent-gold" />
+              Explore Stain Colors
+            </motion.button>
+          </div>
         </motion.div>
       </div>
 
@@ -73,4 +73,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

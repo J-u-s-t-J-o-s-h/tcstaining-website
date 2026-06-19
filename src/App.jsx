@@ -6,6 +6,7 @@ import Hero from './sections/Hero';
 
 const About = lazy(() => import('./sections/About'));
 const Services = lazy(() => import('./sections/Services'));
+const StainColors = lazy(() => import('./sections/StainColors'));
 const Gallery = lazy(() => import('./sections/Gallery'));
 const Contact = lazy(() => import('./sections/Contact'));
 
@@ -20,6 +21,8 @@ function App() {
           <About />
           <SectionDivider />
           <Services />
+          <SectionDivider />
+          <StainColors />
           <SectionDivider />
           <Gallery />
           <SectionDivider />

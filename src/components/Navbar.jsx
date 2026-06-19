@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
+import { scrollToSection } from '../utils/scrollToSection';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,23 +19,14 @@ const Navbar = () => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Services', href: '#services' },
+    { name: 'Colors', href: '#stain-colors' },
     { name: 'Gallery', href: '#gallery' },
     { name: 'Contact', href: '#contact' },
   ];
 
-  const scrollToSection = (e, href) => {
+  const handleNavClick = (e, href) => {
     e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      const offset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
+    scrollToSection(href);
     setIsOpen(false);
   };
 
@@ -47,7 +39,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <a href="#home" onClick={(e) => scrollToSection(e, '#home')} className="flex items-center">
+          <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center">
             <motion.img
               src="/logo.svg"
               alt="TC Staining"
@@ -66,7 +58,7 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.href}
-                onClick={(e) => scrollToSection(e, item.href)}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className="text-charcoal-gray hover:text-accent-gold transition-colors duration-300 font-medium"
               >
                 {item.name}
@@ -74,7 +66,7 @@ const Navbar = () => {
             ))}
             <a
               href="#contact"
-              onClick={(e) => scrollToSection(e, '#contact')}
+              onClick={(e) => handleNavClick(e, '#contact')}
               className="bg-accent-gold text-white px-6 py-2 rounded-lg hover:bg-dark-walnut transition-colors duration-300 font-semibold"
             >
               Get Quote
@@ -107,7 +99,7 @@ const Navbar = () => {
                 <a
                   key={item.name}
                   href={item.href}
-                  onClick={(e) => scrollToSection(e, item.href)}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="block py-2 text-charcoal-gray hover:text-accent-gold transition-colors duration-300 font-medium"
                 >
                   {item.name}
@@ -115,7 +107,7 @@ const Navbar = () => {
               ))}
               <a
                 href="#contact"
-                onClick={(e) => scrollToSection(e, '#contact')}
+                onClick={(e) => handleNavClick(e, '#contact')}
                 className="block w-full text-center bg-accent-gold text-white px-6 py-3 rounded-lg hover:bg-dark-walnut transition-colors duration-300 font-semibold"
               >
                 Get Quote
