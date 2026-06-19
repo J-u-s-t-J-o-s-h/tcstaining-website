@@ -8,6 +8,7 @@ const About = lazy(() => import('./sections/About'));
 const Services = lazy(() => import('./sections/Services'));
 const StainColors = lazy(() => import('./sections/StainColors'));
 const Gallery = lazy(() => import('./sections/Gallery'));
+const Reviews = lazy(() => import('./sections/Reviews'));
 const Contact = lazy(() => import('./sections/Contact'));
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
           <StainColors />
           <SectionDivider />
           <Gallery />
+          <SectionDivider />
+          <Reviews />
           <SectionDivider />
           <Contact />
         </Suspense>

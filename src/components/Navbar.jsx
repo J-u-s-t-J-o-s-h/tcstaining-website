@@ -21,6 +21,7 @@ const Navbar = () => {
     { name: 'Services', href: '#services' },
     { name: 'Colors', href: '#stain-colors' },
     { name: 'Gallery', href: '#gallery' },
+    { name: 'Reviews', href: '#reviews' },
     { name: 'Contact', href: '#contact' },
   ];
 
