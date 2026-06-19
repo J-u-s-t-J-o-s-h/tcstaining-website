@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "brand": "Olympic",
+    "source": "https://www.olympic.com/color/exterior",
+    "availability": "Home Depot",
+    "lastUpdated": "2026-06-19",
+    "notes": "Swatch colors sampled from official Olympic CDN swatch images (olympic.com/exterior-colors). Codes are for internal catalog maintenance only — not shown to customers."
+  },
+  "colors": [
+    {
+      "id": "cedar",
+      "name": "Cedar",
+      "code": "SC-1014",
+      "family": "Browns & Tans",
+      "type": "Solid",
+      "swatchColor": "#89562e",
+      "swatchSourceUrl": "https://cdn.prod.website-files.com/68e6960edfa93f06fb6e1247/691622748844f368422ea831_SC-1014_Cedar_Solid_Cedar.jpeg",
+      "description": "Classic warm cedar brown — one of the most popular fence stain colors for residential wood."
+    },
+    {
+      "id": "cedar-naturaltone",
+      "name": "Cedar Naturaltone",
+      "code": "ST-2005",
+      "family": "Browns & Tans",
+      "type": "Semi-Transparent",
+      "swatchColor": "#9b5c27",
+      "swatchSourceUrl": "https://cdn.prod.website-files.com/68e6960edfa93f06fb6e1247/69162285f77ce653a5c73ad3_ST-2005_CedarNaturaltone_Semi-Transparent_Cedar.jpeg",
+      "description": "Enhances natural wood grain with a warm cedar tint and lighter, semi-transparent coverage."
+    },
+    {
+      "id": "black-walnut",
+      "name": "Black Walnut",
+      "code": "ST-2002",
+      "family": "Browns & Tans",
+      "type": "Semi-Transparent",
+      "swatchColor": "#674220",
+      "swatchSourceUrl": "https://cdn.prod.website-files.com/68e6960edfa93f06fb6e1247/691622852a047309e50d186b_ST-2002_BlackWalnut_Semi-Transparent_Cedar.jpeg",
+      "description": "Rich walnut tone that deepens wood character while letting grain show through."
+    },
+    {
+      "id": "coffee",
+      "name": "Coffee",
+      "code": "ST-2008",
+      "family": "Browns & Tans",
+      "type": "Semi-Transparent",
+      "swatchColor": "#6e502a",
+      "swatchSourceUrl": "https://cdn.prod.website-files.com/68e6960edfa93f06fb6e1247/691622864383ec92ccdfb6cf_ST-2008_Coffee_Semi-Transparent_Cedar.jpeg",
+      "description": "Medium coffee brown that adds warmth while keeping wood texture visible."
+    },
+    {
+      "id": "autumn-brown",
+      "name": "Autumn Brown",
+      "code": "SC-1004",
+      "family": "Browns & Tans",
+      "type": "Solid",
+      "swatchColor": "#4f3927",
+      "swatchSourceUrl": "https://cdn.prod.website-files.com/68e6960edfa93f06fb6e1247/69162272d0fe3d2a4e8684a3_SC-1004_AutumnBrown_Solid_Cedar.jpeg",
+      "description": "Warm earthy brown inspired by natural autumn wood tones."
+    },
+    {
+      "id": "cape-cod-gray",
+      "name": "Cape Cod Gray",
+      "code": "SC-1012",
+      "family": "Gray",
+      "type": "Solid",
+      "swatchColor": "#92886c",
+      "swatchSourceUrl": "https://cdn.prod.website-files.com/68e6960edfa93f06fb6e1247/691622737b46fa4f1c4baae9_SC-1012_CapeCodGray_Solid_Cedar.jpeg",
+      "description": "Soft weathered gray with warm undertones — popular for contemporary and coastal homes."
+    },
+    {
+      "id": "deep-redwood",
+      "name": "Deep Redwood",
+      "code": "SC-1052",
+      "family": "Reds & Pinks",
+      "type": "Solid",
+      "swatchColor": "#65362a",
+      "swatchSourceUrl": "https://cdn.prod.website-files.com/68e6960edfa93f06fb6e1247/6916227b083dc038d103cac8_SC-1052_DeepRedwood_Solid_Cedar.jpeg",
+      "description": "Bold red-brown reminiscent of classic redwood fencing."
+    }
+  ]
+}
