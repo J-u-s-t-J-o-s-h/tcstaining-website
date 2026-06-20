@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from 'react';
 import ParallaxBackground from '../components/ParallaxBackground';
 import StainColorVisualizer from '../components/StainColorVisualizer';
 import { useStainColor } from '../hooks/useStainColor';
+import { getFinishLabel } from '../data/stainFinishTypes';
 import { useForm } from 'react-hook-form';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
 
@@ -15,7 +16,7 @@ const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const { selectedColor } = useStainColor();
+  const { selectedColor, selectedFinish } = useStainColor();
   
   const {
     register,
@@ -26,12 +27,17 @@ const Contact = () => {
   } = useForm({
     defaultValues: {
       colorChoice: selectedColor.name,
+      finishChoice: getFinishLabel(selectedFinish),
     },
   });
 
   useEffect(() => {
     setValue('colorChoice', selectedColor.name);
   }, [selectedColor, setValue]);
+
+  useEffect(() => {
+    setValue('finishChoice', getFinishLabel(selectedFinish));
+  }, [selectedFinish, setValue]);
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
@@ -46,6 +52,7 @@ const Contact = () => {
         `Address: ${data.address || "Not provided"}`,
         `Fence Size / Linear Feet: ${data.fenceSize || "Not provided"}`,
         `Color Choice: ${data.colorChoice || "Unsure"}`,
+        `Finish Type: ${data.finishChoice || "Semi-Transparent"}`,
         "",
         "Project Details:",
         data.message,
@@ -59,6 +66,7 @@ const Contact = () => {
         address: data.address || "",
         fence_size: data.fenceSize || "",
         color_choice: data.colorChoice || "Unsure",
+        finish_type: data.finishChoice || "Semi-Transparent",
         message: formattedMessage,
         subject: "New Quote Request - TC Staining",
         from_name: "TC Staining Website",
@@ -209,6 +217,7 @@ const Contact = () => {
                   Color Choice
                 </label>
                 <input type="hidden" id="colorChoice" {...register('colorChoice')} />
+                <input type="hidden" id="finishChoice" {...register('finishChoice')} />
                 <StainColorVisualizer compact />
               </div>
 

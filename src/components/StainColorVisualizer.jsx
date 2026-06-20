@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useCallback, useRef, useState } from 'react';
 import { FaArrowsAltH } from 'react-icons/fa';
 import { stainColors } from '../data/stainColors';
+import { getFinishIntensity, STAIN_FINISH_OPTIONS } from '../data/stainFinishTypes';
 import { useStainColor } from '../hooks/useStainColor';
 import { scrollToSection } from '../utils/scrollToSection';
 
@@ -152,9 +153,9 @@ function SwatchButton({ color, isSelected, onSelect, index }) {
 }
 
 export default function StainColorVisualizer({ compact = false }) {
-  const { selectedColor, setSelectedColor } = useStainColor();
+  const { selectedColor, setSelectedColor, selectedFinish, setSelectedFinish } = useStainColor();
   const [scene, setScene] = useState(SCENES[0]);
-  const [intensity, setIntensity] = useState(0.85);
+  const intensity = getFinishIntensity(selectedFinish);
 
   if (compact) {
     return (
@@ -287,26 +288,36 @@ export default function StainColorVisualizer({ compact = false }) {
           ))}
         </div>
 
-        {/* Intensity */}
+        {/* Finish type */}
         <div className="mt-6">
-          <div className="flex items-center justify-between mb-2">
-            <label htmlFor="stain-intensity" className="text-sm font-semibold text-charcoal-gray">
-              Stain Intensity
-            </label>
-            <span className="text-sm text-charcoal-gray/70">{Math.round(intensity * 100)}%</span>
+          <p className="text-sm font-semibold text-charcoal-gray mb-2">Select Stain Finish</p>
+          <div
+            className="grid grid-cols-3 gap-1 p-1 bg-white/80 rounded-lg ring-1 ring-dark-walnut/10"
+            role="group"
+            aria-label="Select stain finish type"
+          >
+            {STAIN_FINISH_OPTIONS.map((option) => {
+              const isSelected = selectedFinish === option.id;
+
+              return (
+                <button
+                  key={option.id}
+                  type="button"
+                  onClick={() => setSelectedFinish(option.id)}
+                  aria-pressed={isSelected}
+                  className={`px-2 py-2.5 sm:px-3 sm:py-3 rounded-md text-xs sm:text-sm font-semibold transition-all duration-300 touch-manipulation focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 ${
+                    isSelected
+                      ? 'bg-accent-gold text-white shadow-md'
+                      : 'text-charcoal-gray hover:bg-white hover:text-dark-walnut'
+                  }`}
+                >
+                  {option.label}
+                </button>
+              );
+            })}
           </div>
-          <input
-            id="stain-intensity"
-            type="range"
-            min="0.35"
-            max="1"
-            step="0.01"
-            value={intensity}
-            onChange={(e) => setIntensity(parseFloat(e.target.value))}
-            className="w-full accent-accent-gold touch-manipulation"
-          />
-          <p className="text-xs text-charcoal-gray/60 mt-1">
-            Lighter for a translucent, semi-transparent finish; higher for a rich, solid coat.
+          <p className="text-xs text-charcoal-gray/60 mt-2">
+            Transparent shows the most wood grain. Solid provides the strongest color coverage.
           </p>
         </div>
 
