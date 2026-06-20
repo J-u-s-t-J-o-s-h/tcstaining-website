@@ -298,12 +298,20 @@ const Contact = () => {
             <div className="bg-white p-8 rounded-lg shadow-xl">
               <h3 className="text-2xl font-bold text-dark-walnut mb-3">Service Area Map</h3>
               <p className="text-charcoal-gray mb-5">
-                Serving Aiken, Augusta, and Edgefield areas.
+                Serving Aiken, Augusta, and Edgefield areas.{' '}
+                <a
+                  href="https://maps.app.goo.gl/2K1RbxpTnYD63GUBA"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent-gold font-semibold hover:underline underline-offset-4"
+                >
+                  View on Google Maps
+                </a>
               </p>
               <div className="rounded-lg overflow-hidden border border-gray-200 h-72">
                 <iframe
-                  title="TC Staining Service Area"
-                  src="https://www.google.com/maps?q=Aiken,Augusta,Edgefield&output=embed"
+                  title="T.C. Staining on Google Maps"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d704066.1374857198!2d-82.09999554202184!3d33.58766614788702!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4bbb7d995bde70ab%3A0x8456cb7b7557539!2sT.C.%20Staining!5e1!3m2!1sen!2sus!4v1781973441655!5m2!1sen!2sus"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
